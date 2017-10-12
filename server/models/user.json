@@ -1,0 +1,44 @@
+{
+  "name": "user",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true,
+    "realmRequired": true
+  },
+  "properties": {
+    "id": {
+      "id": true,
+      "type": "string",
+      "defaultFn": "uuid"
+    },
+    "createdAt": {
+      "type": "date",
+      "defaultFn": "now"
+    },
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "organizations": {
+      "type": "hasMany",
+      "model": "organization"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "accessType": "READ",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
