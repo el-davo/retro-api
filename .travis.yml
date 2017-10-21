@@ -2,8 +2,7 @@ language: node_js
 node_js:
 - '8'
 install:
-- yarn
-- yarn lint
+- yarng
 cache:
   yarn: true
 deploy:
