@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node .",
-    "posttest": "npm run lint && nsp check",
+    "posttest": "npm run lint",
     "docker": "docker build -t eahedav/retro-api .",
     "docker:tag": "docker tag eahedav/retro-api eahedav/retro-api",
     "docker:push": "docker push eahedav/retro-api"
