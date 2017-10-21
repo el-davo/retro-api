@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+- '8'
+install:
+- yarn
+- yarn lint
+- yarn build
+cache:
+  yarn: true
+deploy:
+  provider: cloudfoundry
+  api: https://api.run.pivotal.io
+  username: david.ahern26@gmail.com
+  password:
+    secure: Hbg3UUEOdqm91z23Y4qGr+ar3bdr0cD3M2xrcLS+9po9igMIysi9x75jeoUYhPT3DcILxL/mWTsVhfzS+bh7GVtf6vmdBtGe5dhahKInBVloJv76Do45kTJgrFgJKHYMk0Xf+fnt0lQtp9TizMy7g9mFDd7hymPl3lj5VDv3PrthXrd0hl93vNE9+zbJmOi4Y7SkwzcCoGvCd3XxsJtAHAApRXma8/WB02F4q8rskzvyZ6Xq8HcZgBUABIpWzohEELGWmIuEoDlekqv88Mo4i/lp21L+xjtxfF531t9dkOshZc6oEbOkApKzXn/YPrTQKBrg1tJ9om3vPms/uC1Qx9vOrINGorUY7cpAItlbwquimJTTRMOmWcamAwSCIklVKglJ7Qj7YyhWysUUgRkeL4scX8Bof0UL/RTXk46inrPwIp2zNIJd7Axnscn8St6gi+L5UWSNePE52EnEENgHdECqocktseFi9eKJD/pcJH5t4R5uMBi1nsq7taAv7YA4XEDvrR56R7c93A8NQD2mOnVWEnElAToD0JB6Nl4mBQQp+lhPWV5SwjrsLYNJqUeRMp+MKArwnZwhrQGrkCVpuHauL9tszC7fIjulnq1kumsHgk35OA19k2iHfP+LAiQwh1OL98SuEJYBX0P7lUO4z0OyuGQcoccbEUOdRZUvtYc=
+  organization: thor
+  space: prod
+  on:
+    repo: el-davo/retro-api
+    branch: master
