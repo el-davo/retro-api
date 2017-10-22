@@ -10,8 +10,22 @@ module.exports = app => {
   });
 
   function createBootstrapUsers() {
-    let retro = app.models.retro;
+    let retroModel = app.models.retro;
+    let userModel = app.models.user;
 
-    retro.create({name: 'test'});
+    userModel.findOne({where: {username: 'test'}}, (error, response) => {
+      if (response) {
+        return;
+      }
+
+      userModel.create({
+        username: 'test',
+        email: 'test@test.com',
+        password: 'test',
+        emailVerified: true
+      }, (err, user) => {
+        retroModel.create({userId: user.id, name: 'test'});
+      });
+    });
   }
 };
